@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Produkt Manager</title>
+</head>
+<body>
+<div align="center">
+    <h1>Product Manager</h1>
+    <a href="new"> Krijo produktin </a>
+    <br/> <br/>
+    <table border = "1">
+      <thead>
+    <tr>
+        <th>Produkti ID</th>
+        <th>Emri</th>
+        <th>Kategoria</th>
+        <th>nrSasise</th>
+        <th>Perditeso </th>
+
+    </tr>
+      </thead>
+        <tbody>
+        <tr th:each="produkt : ${produktList}">
+           <td th:text="${produkt.id}"> Produkti ID</td>
+            <td th:text="${produkt.emri}"> Emri</td>
+            <td th:text="${produkt.kategoria}">Kategoria</td>
+            <td th:text="${produkt.nrSasise}">NrSasise</td>
+            <td>
+                <a th:href="@{'/app/edit/' + ${produkt.id}}">Nrysho</a>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <a th:href="@{'/app/delete/' + ${produkt.id}}">Fshije</a>
+            </td>
+        </tr>
+        </tbody>
+
+    </table>
+
+</div>
+</body>
+</html>
